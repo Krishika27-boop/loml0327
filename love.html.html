@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 8s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{transform:translateY(0) scale(1);opacity:0.8;}
+100%{transform:translateY(-100vh) scale(1.5);opacity:0;}
+}
+
+/* password screen */
+
+.password-screen{
+text-align:center;
+color:white;
+}
+
+input{
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:25px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* start screen */
+
+.start-screen{
+display:none;
+text-align:center;
+color:white;
+}
+
+/* message */
+
+.container{
+display:none;
+max-width:900px;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+overflow:auto;
+max-height:90vh;
+}
+
+h1{
+text-align:center;
+color:#ff4d6d;
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+text-align:justify;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+
+<div class="password-screen" id="passwordScreen">
+<h1>enter the secret password</h1>
+<input type="password" id="passwordInput" placeholder="password">
+<br>
+<button onclick="checkPassword()">unlock</button>
+</div>
+
+<!-- OPEN HEART SCREEN -->
+
+<div class="start-screen" id="start">
+<h1>for someone special</h1>
+<button onclick="openMessage()">open my heart</button>
+</div>
+
+<!-- MESSAGE -->
+
+<div class="container" id="message">
+
+<h1>for my love</h1>
+
+<p>
+
+i want you to know that my love for you is something that runs deeper than i can ever fully explain and even if i tried for a lifetime i still would not find enough words to show you everything that i feel inside my heart because you are not just someone who came into my life you are someone who changed it in the most beautiful way and every day i find myself feeling thankful that you exist and that somehow our paths crossed and brought us to each other because having you in my life has given me a kind of happiness and comfort that is rare and precious and i never want to take that for granted and i want to thank you from the bottom of my heart for being patient with me for understanding me even when i struggle to explain my thoughts and for staying beside me even during moments when i am not at my best because i know that loving someone also means accepting their imperfections and i know that i have many and sometimes i make mistakes sometimes i say things the wrong way or act without thinking and when that happens i am truly sorry because the last thing i would ever want is to hurt you or make you feel like you are not valued or appreciated because the truth is that you are one of the most important people in my life and your presence means more to me than you may even realize and when i think about everything you do the way you care about me the way you listen when i talk the way you try to make me smile even when i am having a bad day it reminds me again and again how lucky i am to have someone like you and those small moments might seem ordinary but to me they mean everything because they show me how genuine your heart is and how much love you carry inside you and i admire that about you so much and i hope you always remember that you are appreciated and that your efforts never go unnoticed even when i forget to say it out loud because the truth is that you have become such a big part of my world and my happiness and when i imagine my life without you it feels empty and incomplete because you bring warmth into my days and peace into my heart and i am so grateful for every memory we have created together every conversation every laugh every quiet moment because all of those things have slowly built something beautiful between us something that i truly cherish and want to protect and i know that relationships are not always perfect and that sometimes we will have disagreements or misunderstandings but none of that will ever change the love i have for you because my love for you is real and steady and it is something i hold very close to my heart and i want you to know that i believe in us and i believe in the connection we share and i want to keep growing with you learning more about you supporting your dreams celebrating your successes and standing beside you during difficult times because being there for you is something that truly matters to me and i want to be someone you can always rely on someone who will listen to you understand you and remind you how important you are because you deserve to feel loved valued and appreciated every single day and i hope you always remember that you are someone who makes my life brighter simply by being part of it and the way you care the way you think the way you treat the people around you all of it makes you an incredible person and i admire you more than you probably know and i never want you to doubt your place in my life because you are someone i hold very close to my heart and someone i deeply care about and i am thankful for you not just for the big things but also for the small everyday things that make our relationship special and meaningful and i promise that my love for you is genuine and sincere and i will always try my best to show you that even if i sometimes fail with my words because what i feel for you comes from a very real place inside me and it is something i treasure deeply and i hope that whenever you read this you can feel even a small part of how much you mean to me because you are someone i care about immensely someone who brings happiness into my life and someone i never want to lose and no matter what challenges life may bring i want you to know that you are important to me you are appreciated by me and you are loved by me more than i can ever fully explain with words
+
+</p>
+
+</div>
+
+<script>
+
+const correctPassword="love123";  // change password here
+
+function checkPassword(){
+let input=document.getElementById("passwordInput").value;
+
+if(input===correctPassword){
+document.getElementById("passwordScreen").style.display="none";
+document.getElementById("start").style.display="block";
+}else{
+alert("wrong password");
+}
+}
+
+function openMessage(){
+document.getElementById("start").style.display="none";
+document.getElementById("message").style.display="block";
+}
+
+/* floating hearts */
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💗";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+heart.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},8000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
